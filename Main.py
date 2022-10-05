@@ -41,6 +41,14 @@ def key_send_midi():
 try:
     while True:
         key_send_midi()
+        if keyboard.is_pressed("up"):
+            octave = octave + 1
+            if octave > 2:
+                octave = 2
+        elif keyboard.is_pressed("down"):
+            octave = octave - 1
+            if octave < -2 :
+                octave = -2
 
 except KeyboardInterrupt:
     GPIO.cleanup()
